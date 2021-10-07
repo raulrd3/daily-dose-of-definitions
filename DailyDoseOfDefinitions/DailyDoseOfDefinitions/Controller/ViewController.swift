@@ -65,10 +65,7 @@ class RandomWordView: UIView {
     
     private func setUpView() {
         
-        backgroundColor = UIColor(named: "DDDAlabaster")
-        
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.black.cgColor
+        backgroundColor = .white
         
         setUpTitle()
         setUpSubtitle()

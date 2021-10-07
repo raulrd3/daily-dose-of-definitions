@@ -47,6 +47,7 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = UIColor(named: "DarkGray")
         setUpViews()
     }
     
@@ -55,15 +56,12 @@ class MainView: UIView {
     }
     
     private func setUpViews() {
-        backgroundColor = .black
-        
         addSubview(headerView)
         addSubview(randomWordView)
         addSubview(dividerView)
         
         addSubview(definitionSearchContainerView)
         
-        headerView.backgroundColor = .yellow
         randomWordView.backgroundColor = .red
         
         NSLayoutConstraint.activate([
@@ -106,17 +104,16 @@ class HeaderView: UIView {
             string: "Daily Dose \nof Definitions",
             attributes: [
                 NSAttributedString.Key.font : UIFont.systemFont(ofSize: 32, weight: .bold),
-                NSAttributedString.Key.foregroundColor : UIColor(named: "DDDBlue") ?? .black
+                NSAttributedString.Key.foregroundColor : UIColor.white
             ]
         )
-        label.textColor = .white
         return label
     }()
     
     let dividerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         return view
     }()
     
@@ -124,6 +121,7 @@ class HeaderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "September 29, 2021"
+        label.textColor = .white
         return label
     }()
     
@@ -138,7 +136,6 @@ class HeaderView: UIView {
     }
     
     private func setUpViews() {
-        
         addSubview(titleLabel)
         addSubview(dividerView)
         addSubview(dateLabel)
