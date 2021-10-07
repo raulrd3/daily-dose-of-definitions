@@ -40,6 +40,7 @@ class SearchDefinitionView: UIView {
         button.setTitle("Search", for: .normal)
         button.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
         button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return button
     }()
     
@@ -79,7 +80,10 @@ class SearchDefinitionView: UIView {
             searchButton.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
-//            tableView.topAnchor
+            tableView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 8),
+            tableView.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: searchButton.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
