@@ -8,21 +8,22 @@
 import UIKit
 
 class RandomWordViewController: UIViewController {
-
     override func loadView() {
-//        view = SearchDefinitionView()
+//        view = RandomWordView()
     }
 }
 
-
 // Container view controller will have this view
 class SearchDefinitionView: UIView {
+    
+    // MARK: - UI Properties
     
     // https://medium.com/nyc-design/swift-4-add-icon-to-uitextfield-48f5ebf60aa1
     let textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Find a word..."
+        textField.backgroundColor = .white
         
         let iconView = UIImageView(frame:
                           CGRect(x: 10, y: 5, width: 20, height: 20))
@@ -40,7 +41,7 @@ class SearchDefinitionView: UIView {
 //        textField.rightView =
     }()
     
-    let SearchButton: UIButton = {
+    let searchButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Search", for: .normal)
@@ -52,6 +53,8 @@ class SearchDefinitionView: UIView {
         let tableView = UITableView()
         return tableView
     }()
+    
+    // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,6 +80,8 @@ class SearchDefinitionView: UIView {
                         
         ])
     }
+    
+    // MARK: - Actions
     
     @objc func searchButtonPressed() {
         print("Search button pressed")
