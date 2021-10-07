@@ -39,13 +39,6 @@ class MainView: UIView {
         return searchDefinitionView
     }()
     
-//    let definitionSearchContainerView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .gray
-//        return view
-//    }()
-    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
