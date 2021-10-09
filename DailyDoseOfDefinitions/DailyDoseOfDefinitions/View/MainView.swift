@@ -16,8 +16,7 @@ class MainView: UIView {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         return headerView
     }()
-            
-    // TODO: Will be a ContainerView
+    
     let randomWordContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -31,10 +30,10 @@ class MainView: UIView {
         return view
     }()
     
-    let definitionSearchContainerView: SearchDefinitionView = {
-        let searchDefinitionView = SearchDefinitionView()
-        searchDefinitionView.translatesAutoresizingMaskIntoConstraints = false
-        return searchDefinitionView
+    let definitionSearchContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     // MARK: - Initializers

@@ -10,13 +10,14 @@ import UIKit
 class ViewController: UIViewController {
 
     var contentView = MainView()
+    let randomWordViewController = RandomWordViewController()
+    let searchDefinitionsViewController = SearchDefinitionsViewController()
     
     // MARK: - Lifecycle Methods
     
     override func loadView() {
         view = contentView
-                
-        let randomWordViewController = RandomWordViewController()
+        
         randomWordViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         addChild(randomWordViewController)
@@ -29,13 +30,26 @@ class ViewController: UIViewController {
             randomWordViewController.view.bottomAnchor.constraint(equalTo: contentView.randomWordContainerView.bottomAnchor),
             randomWordViewController.view.trailingAnchor.constraint(equalTo: contentView.randomWordContainerView.trailingAnchor)
         ])
+        
+        searchDefinitionsViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        addChild(searchDefinitionsViewController)
+        contentView.definitionSearchContainerView.addSubview(searchDefinitionsViewController.view)
+        searchDefinitionsViewController.didMove(toParent: self)
+        
+        NSLayoutConstraint.activate([
+            searchDefinitionsViewController.view.topAnchor.constraint(equalTo: contentView.definitionSearchContainerView.topAnchor),
+            searchDefinitionsViewController.view.leadingAnchor.constraint(equalTo: contentView.definitionSearchContainerView.leadingAnchor),
+            searchDefinitionsViewController.view.bottomAnchor.constraint(equalTo: contentView.definitionSearchContainerView.bottomAnchor),
+            searchDefinitionsViewController.view.trailingAnchor.constraint(equalTo: contentView.definitionSearchContainerView.trailingAnchor)
+        ])
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        contentView.definitionSearchContainerView.tableView.delegate = self
-        contentView.definitionSearchContainerView.tableView.dataSource = self
+        searchDefinitionsViewController.contentView.tableView.delegate = self
+        searchDefinitionsViewController.contentView.tableView.dataSource = self
     }
 }
 

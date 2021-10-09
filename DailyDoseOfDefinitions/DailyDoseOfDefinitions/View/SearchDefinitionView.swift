@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-// Container view controller will have this view
 class SearchDefinitionView: UIView {
     
     // MARK: - UI Properties
