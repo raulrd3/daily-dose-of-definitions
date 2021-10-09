@@ -8,7 +8,14 @@
 import UIKit
 
 class RandomWordViewController: UIViewController {
+    
+    // MARK: - UI Properties
+    
+    let randomWordView = RandomWordView()
+    
+    // MARK: - Lifecycle Methods
+    
     override func loadView() {
-//        view = RandomWordView()
+        view = randomWordView
     }
 }

@@ -52,6 +52,7 @@ class RandomWordView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath.circle"), for: .normal)
         button.tintColor = .gray
+        button.addTarget(self, action: #selector(refreshButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -60,6 +61,7 @@ class RandomWordView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        layer.cornerRadius = 30
         backgroundColor = .white
         setUpViews()
     }
@@ -99,5 +101,11 @@ class RandomWordView: UIView {
             refreshButton.heightAnchor.constraint(equalToConstant: 40),
             refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
         ])
+    }
+    
+    // MARK: - Actions
+    
+    @objc func refreshButtonPressed() {
+        print("Refresh pressed")
     }
 }

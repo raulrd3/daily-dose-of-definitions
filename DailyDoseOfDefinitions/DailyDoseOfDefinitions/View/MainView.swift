@@ -18,11 +18,9 @@ class MainView: UIView {
     }()
             
     // TODO: Will be a ContainerView
-    let randomWordView: RandomWordView = {
-        let view = RandomWordView()
+    let randomWordContainerView: UIView = {
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.refreshButton.addTarget(self, action: #selector(refreshButtonPressed), for: .touchUpInside)
-        view.layer.cornerRadius = 30
         return view
     }()
     
@@ -55,8 +53,9 @@ class MainView: UIView {
     // MARK: - UI Setup Methods
     
     private func setUpViews() {
+        
         addSubview(headerView)
-        addSubview(randomWordView)
+        addSubview(randomWordContainerView)
         addSubview(dividerView)
         addSubview(definitionSearchContainerView)
         
@@ -64,16 +63,16 @@ class MainView: UIView {
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            headerView.bottomAnchor.constraint(equalTo: randomWordView.topAnchor, constant: -8),
+            headerView.bottomAnchor.constraint(equalTo: randomWordContainerView.topAnchor, constant: -8),
             
-            randomWordView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
-            randomWordView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
-            randomWordView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            randomWordView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20),
+            randomWordContainerView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
+            randomWordContainerView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+            randomWordContainerView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+            randomWordContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20),
             
-            dividerView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 10),
-            dividerView.leadingAnchor.constraint(equalTo: randomWordView.leadingAnchor),
-            dividerView.trailingAnchor.constraint(equalTo: randomWordView.trailingAnchor),
+            dividerView.topAnchor.constraint(equalTo: randomWordContainerView.bottomAnchor, constant: 10),
+            dividerView.leadingAnchor.constraint(equalTo: randomWordContainerView.leadingAnchor),
+            dividerView.trailingAnchor.constraint(equalTo: randomWordContainerView.trailingAnchor),
             dividerView.heightAnchor.constraint(equalToConstant: 2),
             
             definitionSearchContainerView.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 10),
@@ -81,12 +80,5 @@ class MainView: UIView {
             definitionSearchContainerView.trailingAnchor.constraint(equalTo: dividerView.trailingAnchor),
             definitionSearchContainerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-    
-    // MARK: Actions
-    
-    @objc func refreshButtonPressed() {
-        
-        print("Refresh pressed")
     }
 }

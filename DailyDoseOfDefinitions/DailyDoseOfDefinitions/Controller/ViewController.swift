@@ -15,6 +15,20 @@ class ViewController: UIViewController {
     
     override func loadView() {
         view = contentView
+                
+        let randomWordViewController = RandomWordViewController()
+        randomWordViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        addChild(randomWordViewController)
+        contentView.randomWordContainerView.addSubview(randomWordViewController.view)
+        randomWordViewController.didMove(toParent: self)
+        
+        NSLayoutConstraint.activate([
+            randomWordViewController.view.topAnchor.constraint(equalTo: contentView.randomWordContainerView.topAnchor),
+            randomWordViewController.view.leadingAnchor.constraint(equalTo: contentView.randomWordContainerView.leadingAnchor),
+            randomWordViewController.view.bottomAnchor.constraint(equalTo: contentView.randomWordContainerView.bottomAnchor),
+            randomWordViewController.view.trailingAnchor.constraint(equalTo: contentView.randomWordContainerView.trailingAnchor)
+        ])
     }
     
     override func viewDidLoad() {
@@ -42,4 +56,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
 }
