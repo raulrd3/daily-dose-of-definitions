@@ -9,12 +9,15 @@ import UIKit
 
 class RandomWordView: UIView {
     
+    // MARK: - Class Properties
+    
+    weak var randomWordGeneratableDelegate: RandomWordGeneratable?
+    
     // MARK: - UI Properties
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Programming"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
@@ -23,7 +26,6 @@ class RandomWordView: UIView {
     let partsOfSpeechLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "noun"
         label.font = UIFont.systemFont(ofSize: 12, weight: .thin)
         return label
     }()
@@ -31,7 +33,6 @@ class RandomWordView: UIView {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "creating a sequence of instructions to enable the computer to do something"
         label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
@@ -58,8 +59,10 @@ class RandomWordView: UIView {
     
     // MARK: - Initializers
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(randomWordGeneratableDelegate: RandomWordGeneratable?) {
+        super.init(frame: .zero)
+        
+        self.randomWordGeneratableDelegate = randomWordGeneratableDelegate
         
         layer.cornerRadius = 30
         backgroundColor = .white
@@ -101,11 +104,12 @@ class RandomWordView: UIView {
             refreshButton.heightAnchor.constraint(equalToConstant: 40),
             refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
         ])
-    }
+    }        
     
     // MARK: - Actions
     
     @objc func refreshButtonPressed() {
         print("Refresh pressed")
+        randomWordGeneratableDelegate?.generateRandomWordToDisplay()
     }
 }

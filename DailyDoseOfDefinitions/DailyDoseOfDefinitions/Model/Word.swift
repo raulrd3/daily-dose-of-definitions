@@ -19,4 +19,5 @@ struct WordDetail: Codable {
     let synonyms: [String]?
     let antonyms: [String]?
     let examples: [String]?
+    let partOfSpeech: String?
 }
