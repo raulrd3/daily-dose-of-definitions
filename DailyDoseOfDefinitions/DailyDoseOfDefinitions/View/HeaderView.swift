@@ -31,6 +31,7 @@ class HeaderView: UIView {
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.italicSystemFont(ofSize: 12)
         label.textColor = .white
         label.text = "MM/DD/YYYY"
         return label

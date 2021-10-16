@@ -13,11 +13,16 @@ class MainView: UIView {
     // MARK: UI Properties
     
     let headerView: HeaderView = {
-            let headerView = HeaderView()
-            headerView.translatesAutoresizingMaskIntoConstraints = false
-            return headerView
-        }()
+        let headerView = HeaderView()
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        return headerView
+    }()
     
+    let randomWordView: RandomWordView = {
+        let randomWordView = RandomWordView()
+        randomWordView.translatesAutoresizingMaskIntoConstraints = false
+        return randomWordView
+    }()
     
     // MARK: Initializer
     
@@ -36,12 +41,19 @@ class MainView: UIView {
     private func setUpViews(){
         
         addSubview(headerView)
+        addSubview(randomWordView)
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            headerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            randomWordView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 16),
+            randomWordView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+            randomWordView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+            randomWordView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20),
+            
+            
         ])
     }
     
