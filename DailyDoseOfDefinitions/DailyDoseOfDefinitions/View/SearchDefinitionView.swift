@@ -49,6 +49,13 @@ class SearchDefinitionView: UIView {
         return button
     }()
     
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .yellow
+        tableView.register(DefinitionTableViewCell.self, forCellReuseIdentifier: DefinitionTableViewCell.identifier)
+        return tableView
+    }()
     
     // MARK: - Initializers
     
