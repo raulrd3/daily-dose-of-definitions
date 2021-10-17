@@ -17,7 +17,7 @@ class RandomWordView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "DefinedWord"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         return label
     }()
     
@@ -25,14 +25,14 @@ class RandomWordView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "p.o.s."
-        label.font = UIFont.italicSystemFont(ofSize: 10)
+        label.font = UIFont.italicSystemFont(ofSize: 15)
         return label
     }()
     
     private var definitionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "definition goes here definition goes here definition goes here definition goes here definition goes here definition goes here "
+        label.text = "definition goes here definition goes here definition goes here definition goes here definition goes here definition goes here definition goes here definition goes here definition  "
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 5
         label.lineBreakMode = .byWordWrapping
@@ -43,7 +43,7 @@ class RandomWordView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Random Word"
-        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return label
     }()
     

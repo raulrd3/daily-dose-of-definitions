@@ -24,6 +24,12 @@ class MainView: UIView {
         return randomWordView
     }()
     
+    let searchDefinitionView: SearchDefinitionView = {
+        let searchDefinitionView = SearchDefinitionView()
+        searchDefinitionView.translatesAutoresizingMaskIntoConstraints = false
+        return searchDefinitionView
+    }()
+    
     // MARK: Initializer
     
     override init(frame: CGRect) {
@@ -42,6 +48,7 @@ class MainView: UIView {
         
         addSubview(headerView)
         addSubview(randomWordView)
+        addSubview(searchDefinitionView)
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -52,6 +59,11 @@ class MainView: UIView {
             randomWordView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             randomWordView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             randomWordView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20),
+            
+            searchDefinitionView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 24),
+            searchDefinitionView.leadingAnchor.constraint(equalTo: randomWordView.leadingAnchor),
+            searchDefinitionView.trailingAnchor.constraint(equalTo: randomWordView.trailingAnchor),
+            searchDefinitionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
             
         ])

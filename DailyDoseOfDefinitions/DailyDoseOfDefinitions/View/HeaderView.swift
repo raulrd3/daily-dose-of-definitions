@@ -15,7 +15,7 @@ class HeaderView: UIView {
     private var headerTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 30, weight: .regular)
         label.textColor = .white
         label.text = "Daily Dose of Definitions"
         return label
@@ -24,7 +24,7 @@ class HeaderView: UIView {
     private var dividerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = .darkGray
         return view
     }()
     
