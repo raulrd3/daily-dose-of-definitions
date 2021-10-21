@@ -17,6 +17,8 @@
 		D84353ED271A16A700DB82D3 /* RandomWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84353EC271A16A700DB82D3 /* RandomWordView.swift */; };
 		D84353EF271B747F00DB82D3 /* SearchDefinitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84353EE271B747F00DB82D3 /* SearchDefinitionView.swift */; };
 		D84353F1271BEA0600DB82D3 /* DefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84353F0271BEA0600DB82D3 /* DefinitionTableViewCell.swift */; };
+		D86FB3882720EA9C00EC0498 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86FB3872720EA9C00EC0498 /* Word.swift */; };
+		D86FB38E2720FE7800EC0498 /* DefinitionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86FB38D2720FE7800EC0498 /* DefinitionTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		D84353EC271A16A700DB82D3 /* RandomWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordView.swift; sourceTree = "<group>"; };
 		D84353EE271B747F00DB82D3 /* SearchDefinitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDefinitionView.swift; sourceTree = "<group>"; };
 		D84353F0271BEA0600DB82D3 /* DefinitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTableViewCell.swift; sourceTree = "<group>"; };
+		D86FB3872720EA9C00EC0498 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		D86FB38D2720FE7800EC0498 /* DefinitionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		D824172727151BED003718E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D86FB3872720EA9C00EC0498 /* Word.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				D82417172713C550003718E1 /* ViewController.swift */,
+				D86FB38D2720FE7800EC0498 /* DefinitionTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,7 +189,9 @@
 			files = (
 				D84353EF271B747F00DB82D3 /* SearchDefinitionView.swift in Sources */,
 				D824172E27154533003718E1 /* HeaderView.swift in Sources */,
+				D86FB3882720EA9C00EC0498 /* Word.swift in Sources */,
 				D82417182713C550003718E1 /* ViewController.swift in Sources */,
+				D86FB38E2720FE7800EC0498 /* DefinitionTableViewController.swift in Sources */,
 				D824172C271528F0003718E1 /* MainView.swift in Sources */,
 				D84353F1271BEA0600DB82D3 /* DefinitionTableViewCell.swift in Sources */,
 				D82417142713C550003718E1 /* AppDelegate.swift in Sources */,

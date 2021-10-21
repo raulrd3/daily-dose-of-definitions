@@ -89,4 +89,5 @@ class DefinitionTableViewCell: UITableViewCell {
             subtitleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
         ])
     }
+    
 }

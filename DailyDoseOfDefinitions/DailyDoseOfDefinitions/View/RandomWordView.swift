@@ -56,7 +56,7 @@ class RandomWordView: UIView {
         button.setImage(largeBoldDoc, for: .normal)
         
         button.tintColor = .gray
-        button.addTarget(self, action: #selector(refreshButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(randomWordGenerator), for: .touchUpInside)
         return button
     }()
     
@@ -107,8 +107,49 @@ class RandomWordView: UIView {
     
     // MARK: - Actions
     
-    @objc func refreshButtonPressed(){
+    @objc func randomWordGenerator(){
+        
         print("Refresh pressed")
-    }
+        
+        let headers = [
+            "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+            "x-rapidapi-key": "61dee1f350msh3ecfaf007653279p1dea9ejsnd1dbdbf9c211"
+        ]
+
+        let request = NSMutableURLRequest(url: NSURL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions")! as URL,
+             cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+
+        URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+                    
+                    guard let data = data, error == nil else {
+                        print("Something went wrong")
+                        return
+                    }
+                    
+                    do {
+                        let randomWord = try JSONDecoder().decode(Word.self, from: data)
+                        print(randomWord)
+                        DispatchQueue.main.async { [weak self] in
+                            self!.titleLabel.text = randomWord.word
+                            self!.definitionLabel.text = randomWord.results?.first?.definition
+                            self!.partsOfSpeechLabel.text = randomWord.results?.first?.partOfSpeech
+                        }
+                    }
+                    catch {
+                        print("Failed to decode WordDetails with error: \(error.localizedDescription)")
+                        DispatchQueue.main.async { [weak self] in
+                            self?.titleLabel.text = ""
+                            self?.definitionLabel.text = "Could not find a random word. \nTap on the bottom right refresh button for a new word."
+                            self?.partsOfSpeechLabel.text = ""
+                        }
+                    }
+                }.resume()
+            }
+   
     
 }
+                                        
+

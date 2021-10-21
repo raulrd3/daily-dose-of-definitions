@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class HeaderView: UIView {
+        
+
     
     // MARK: - UI Properties
     
@@ -33,7 +35,12 @@ class HeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.italicSystemFont(ofSize: 12)
         label.textColor = .white
-        label.text = "MM/DD/YYYY"
+        
+        let today = Date()
+        let dateF = DateFormatter()
+        dateF.dateStyle = .short
+        label.text = dateF.string(from: today)
+        
         return label
     }()
     
