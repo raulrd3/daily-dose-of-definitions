@@ -30,6 +30,7 @@ class MainView: UIView {
         return searchDefinitionView
     }()
     
+    //FIXME: - Implement TableView Data
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +46,8 @@ class MainView: UIView {
         super.init(frame: frame)
         
         setUpViews()
+        
+        
     }
     
     required init?(coder: NSCoder) {

@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         let vc = ViewController()
+//        let vc = DefinitionTableViewController()
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }

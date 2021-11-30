@@ -8,8 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    //MARK: - Class Properties
+    
     var contentView = MainView()
+    
     
     
     override func viewDidLoad() {
@@ -18,9 +21,13 @@ class ViewController: UIViewController {
         
         view = contentView
         
-       
         
-        
+//        let bottomViewController = DefinitionTableViewController()
+//        addChild(bottomViewController)
+//        MainView().tableView.addSubview(bottomViewController.view)
+//        bottomViewController.didMove(toParent: self)
+//        bottomViewController.view.frame = MainView().tableView.frame
+
         
     }
 
