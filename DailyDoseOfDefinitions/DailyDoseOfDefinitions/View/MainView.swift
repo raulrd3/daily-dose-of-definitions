@@ -30,15 +30,7 @@ class MainView: UIView {
         return searchDefinitionView
     }()
     
-    //FIXME: - Implement TableView Data
-    var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .darkGray
-        tableView.register(DefinitionTableViewCell.self, forCellReuseIdentifier: DefinitionTableViewCell.identifier)
-        tableView.layer.cornerRadius = 20
-        return tableView
-       }()
+    
     
     // MARK: Initializer
     
@@ -46,7 +38,6 @@ class MainView: UIView {
         super.init(frame: frame)
         
         setUpViews()
-        
         
     }
     
@@ -61,7 +52,7 @@ class MainView: UIView {
         addSubview(headerView)
         addSubview(randomWordView)
         addSubview(searchDefinitionView)
-        addSubview(tableView)
+       
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -76,13 +67,9 @@ class MainView: UIView {
             searchDefinitionView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 24),
             searchDefinitionView.leadingAnchor.constraint(equalTo: randomWordView.leadingAnchor),
             searchDefinitionView.trailingAnchor.constraint(equalTo: randomWordView.trailingAnchor),
-            searchDefinitionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            searchDefinitionView.bottomAnchor.constraint(equalTo: searchDefinitionView.bottomAnchor, constant: 10.0),
             
-            tableView.topAnchor.constraint(equalTo: searchDefinitionView.bottomAnchor, constant: 0),
-            tableView.leadingAnchor.constraint(equalTo: searchDefinitionView.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: searchDefinitionView.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            tableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.475),
+            
             
             
         ])

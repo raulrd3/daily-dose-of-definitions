@@ -27,7 +27,7 @@ class DefinitionTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "happy"
+        label.text = "Word"
         label.textColor = .white
         return label
     }()
@@ -35,7 +35,8 @@ class DefinitionTableViewCell: UITableViewCell {
     let partsOfSpeechLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "adjective"
+        label.text = "p.o.s."
+        label.font = UIFont.italicSystemFont(ofSize: 15)
         label.textColor = .white
         return label
     }()
@@ -43,7 +44,7 @@ class DefinitionTableViewCell: UITableViewCell {
     let subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "marked by good fortune"
+        label.text = "definition goes here"
         label.textColor = .lightGray
         return label
     }()
@@ -73,6 +74,7 @@ class DefinitionTableViewCell: UITableViewCell {
         contentView.addSubview(containerView)
         
         NSLayoutConstraint.activate([
+                    
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),

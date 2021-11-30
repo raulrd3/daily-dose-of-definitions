@@ -16,15 +16,13 @@ class DefinitionTableViewController: UIViewController {
     
     let tableView = UITableView()
     var safeArea: UILayoutGuide!
-    
-    
 
     
     //MARK: - Lifecyle
     
     override func loadView() {
         super.loadView()
-        view.backgroundColor = .yellow
+//        view.backgroundColor = .yellow
         safeArea = view.layoutMarginsGuide
         
         setupTableView()
@@ -40,8 +38,10 @@ class DefinitionTableViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        tableView.backgroundColor = .black
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: DefinitionTableViewCell.identifier)
       }
@@ -63,6 +63,8 @@ extension DefinitionTableViewController: UITableViewDelegate, UITableViewDataSou
     
     
 }
+
+
 
 
 

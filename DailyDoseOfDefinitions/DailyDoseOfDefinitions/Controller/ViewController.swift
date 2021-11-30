@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     var contentView = MainView()
     
     
+    let bottomContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +26,29 @@ class ViewController: UIViewController {
         
         view = contentView
         
+        setUpUI()
         
-//        let bottomViewController = DefinitionTableViewController()
-//        addChild(bottomViewController)
-//        MainView().tableView.addSubview(bottomViewController.view)
-//        bottomViewController.didMove(toParent: self)
-//        bottomViewController.view.frame = MainView().tableView.frame
+        let bottomViewController = DefinitionTableViewController()
+        addChild(bottomViewController)
+        bottomContainerView.addSubview(bottomViewController.view)
+        bottomViewController.didMove(toParent: self)
+        bottomViewController.view.frame = bottomContainerView.frame
 
+    }
+    
+    // MARK: - UI Setup
+    
+    private func setUpUI(){
+        view.backgroundColor = .black
         
+        view.addSubview(bottomContainerView)
+    
+        NSLayoutConstraint.activate([
+            bottomContainerView.topAnchor.constraint(equalTo: contentView.centerYAnchor),
+            bottomContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            bottomContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            bottomContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 
 
