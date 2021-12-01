@@ -68,7 +68,6 @@
 				8FC7FA5FE002F17BFD10E54B /* Pods-DailyDoseOfDefinitions.debug.xcconfig */,
 				AF36A1BB67D95E141ACAFEB5 /* Pods-DailyDoseOfDefinitions.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -419,6 +418,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PODS_XCFRAMEWORKS_BUILD_DIR = "$(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raulrodrigueziii.DailyDoseOfDefinitions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
