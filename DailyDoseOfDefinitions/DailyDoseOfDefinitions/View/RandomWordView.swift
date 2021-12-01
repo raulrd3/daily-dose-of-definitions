@@ -113,7 +113,9 @@ class RandomWordView: UIView {
         
         let headers = [
             "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-            "x-rapidapi-key": "61dee1f350msh3ecfaf007653279p1dea9ejsnd1dbdbf9c211"
+            "x-rapidapi-key":
+                //revoked API key
+                "61dee1f350msh3ecfaf007653279p1dea9ejsnd1dbdbf9c211"
         ]
 
         let request = NSMutableURLRequest(url: NSURL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions")! as URL,

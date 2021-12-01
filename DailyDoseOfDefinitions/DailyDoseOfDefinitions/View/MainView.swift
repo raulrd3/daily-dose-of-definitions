@@ -67,7 +67,7 @@ class MainView: UIView {
             searchDefinitionView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 24),
             searchDefinitionView.leadingAnchor.constraint(equalTo: randomWordView.leadingAnchor),
             searchDefinitionView.trailingAnchor.constraint(equalTo: randomWordView.trailingAnchor),
-            searchDefinitionView.bottomAnchor.constraint(equalTo: searchDefinitionView.bottomAnchor, constant: 10.0),
+//            searchDefinitionView.bottomAnchor.constraint(equalTo: searchDefinitionView.bottomAnchor, constant: 10.0),
             
             
             

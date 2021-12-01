@@ -48,14 +48,7 @@ class SearchDefinitionView: UIView {
         button.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
         return button
     }()
-    
-//    let tableView: UITableView = {
-//        let tableView = UITableView()
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//        tableView.backgroundColor = .yellow
-//        tableView.register(DefinitionTableViewCell.self, forCellReuseIdentifier: DefinitionTableViewCell.identifier)
-//        return tableView
-//    }()
+
     
     // MARK: - Initializers
     
@@ -85,11 +78,16 @@ class SearchDefinitionView: UIView {
             
             searchTextField.topAnchor.constraint(equalTo: dividerView.topAnchor, constant: 24),
             searchTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
+            searchTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
             searchTextField.heightAnchor.constraint(equalToConstant: 44),
             
-            searchButton.leadingAnchor.constraint(equalTo: searchTextField.trailingAnchor, constant: 15),
-            searchButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            searchButton.leadingAnchor.constraint(equalTo: searchTextField.trailingAnchor, constant: 10),
+            searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             searchButton.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor)
+            
+//            refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+//            refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+//            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
         ])
         
 
