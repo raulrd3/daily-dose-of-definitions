@@ -130,7 +130,7 @@ class SearchDefinitionView: UIView {
                 print(error.localizedDescription)
             }
             
-            let firstUser = response.value?.first
+            let firstUser = response.value?.randomElement()
             completion(firstUser, nil)
             
             print("First user: \(String(describing: firstUser))")
