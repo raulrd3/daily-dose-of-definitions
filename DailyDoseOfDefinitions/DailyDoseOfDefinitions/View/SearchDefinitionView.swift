@@ -7,9 +7,14 @@
 
 import Foundation
 import UIKit
+import Alamofire
+
+
 
 class SearchDefinitionView: UIView {
     // MARK: - UI Properties
+    
+    let tableViewCell = DefinitionTableViewCell()
     
     private var dividerView: UIView = {
         let view = UIView()
@@ -23,7 +28,7 @@ class SearchDefinitionView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 15
-        textField.placeholder = "Find a word..."
+        textField.placeholder = "Press Search to test diff API"
         textField.tintColor = .lightGray
         
         let iconView = UIImageView(frame:
@@ -84,10 +89,7 @@ class SearchDefinitionView: UIView {
             searchButton.leadingAnchor.constraint(equalTo: searchTextField.trailingAnchor, constant: 10),
             searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             searchButton.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor)
-            
-//            refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-//            refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-//            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
+
         ])
         
 
@@ -95,7 +97,45 @@ class SearchDefinitionView: UIView {
     
     // MARK: - Actions
     
+    // Implemented free {JSON} Placeholder API below due to account issues with WordsAPI via RapidAPI
+    
     @objc func searchButtonPressed(){
         print("Search pressed")
+        
+        fetchUser { user, error in
+            
+            if error != nil {
+                print("ERROR!")
+            }
+            
+            DispatchQueue.main.async {
+                if let user = user {
+                    self.searchTextField.placeholder = user.fullName
+                }
+                else {
+                    self.tableViewCell.titleLabel.text = "No User Fetched"
+                }
+            }
+        }
+
+    }
+    
+    private func fetchUser(completion: @escaping (User?, Error?) -> Void){
+        
+        AF.request("https://jsonplaceholder.typicode.com/users", method: .get).responseDecodable(of: [User].self){response in
+            
+            if let error = response.error {
+                
+                completion(nil, error)
+                print(error.localizedDescription)
+            }
+            
+            let firstUser = response.value?.first
+            completion(firstUser, nil)
+            
+            print("First user: \(String(describing: firstUser))")
+            print("Second user: \(String(describing: response.value?[1]))")
+            print("Third user: \(String(describing: response.value?[2]))")
+        }
     }
 }
