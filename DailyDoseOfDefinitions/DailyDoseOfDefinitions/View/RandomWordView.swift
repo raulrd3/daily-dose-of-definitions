@@ -32,7 +32,7 @@ class RandomWordView: UIView {
     private var definitionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "definition goes here definition goes here definition goes here definition goes here definition goes here definition goes here definition goes here definition goes here definition  "
+        label.text = "Press Refresh button to test API functionality.\nNote:  API key not active.\nRandom Word with definition would generate."
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 5
         label.lineBreakMode = .byWordWrapping
@@ -130,7 +130,7 @@ class RandomWordView: UIView {
                 "API KEY GOES HERE"
         ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://media.giphy.com/media/3nhfE47B5flIwdIGqk/giphy.gif")! as URL,
              cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -157,7 +157,7 @@ class RandomWordView: UIView {
                         print("Failed to decode WordDetails with error: \(error.localizedDescription)")
                         DispatchQueue.main.async { [weak self] in
                             self?.titleLabel.text = ""
-                            self?.definitionLabel.text = "Could not find a random word. \nTap on the bottom right refresh button for a new word."
+                            self?.definitionLabel.text = "Refresh button is for testing functionality only.  Example Error Message:  Could not find a random word. \nTap on the bottom right refresh button for a new word."
                             self?.partsOfSpeechLabel.text = ""
                             self?.spinner.stopAnimating()
                         }

@@ -44,7 +44,7 @@ class DefinitionTableViewCell: UITableViewCell {
     let subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "definition goes here"
+        label.text = "definition: API call not implemented."
         label.textColor = .lightGray
         return label
     }()
@@ -88,6 +88,7 @@ class DefinitionTableViewCell: UITableViewCell {
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             subtitleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
         ])
     }

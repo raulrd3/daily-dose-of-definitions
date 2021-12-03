@@ -34,6 +34,7 @@ class DefinitionTableViewController: UIViewController {
         setTableViewDelegates()
         //set row height (leaving empty for automatic sizing)
         //register cells
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: DefinitionTableViewCell.identifier)
         //set contraints
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
@@ -43,7 +44,6 @@ class DefinitionTableViewController: UIViewController {
         
         tableView.backgroundColor = .black
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: DefinitionTableViewCell.identifier)
       }
     
     func setTableViewDelegates() {

@@ -134,11 +134,14 @@ class SearchDefinitionView: UIView {
             }
             
             let firstUser = response.value?.randomElement()
+//            let totalUsers: Int? = response.value?.count
+
             completion(firstUser, nil)
             
             print("First user: \(String(describing: firstUser))")
             print("Second user: \(String(describing: response.value?[1]))")
             print("Third user: \(String(describing: response.value?[2]))")
+            print("Length: \(String(describing: response.value?.count))")
         }
     }
 }
