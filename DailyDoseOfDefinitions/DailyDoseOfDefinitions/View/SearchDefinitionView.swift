@@ -75,6 +75,7 @@ class SearchDefinitionView: UIView {
         addSubview(searchTextField)
         addSubview(searchButton)
         
+        
         NSLayoutConstraint.activate([
             dividerView.topAnchor.constraint(equalTo: topAnchor),
             dividerView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -102,6 +103,7 @@ class SearchDefinitionView: UIView {
     @objc func searchButtonPressed(){
         print("Search pressed")
         
+        
         fetchUser { user, error in
             
             if error != nil {
@@ -111,6 +113,7 @@ class SearchDefinitionView: UIView {
             DispatchQueue.main.async {
                 if let user = user {
                     self.searchTextField.placeholder = user.fullName
+
                 }
                 else {
                     self.tableViewCell.titleLabel.text = "No User Fetched"

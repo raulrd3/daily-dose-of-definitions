@@ -60,6 +60,12 @@ class RandomWordView: UIView {
         return button
     }()
     
+    let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -83,6 +89,7 @@ class RandomWordView: UIView {
             addSubview(definitionLabel)
             addSubview(randomWordLabel)
             addSubview(refreshButton)
+            addSubview(spinner)
             
             NSLayoutConstraint.activate([
                 titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
@@ -101,7 +108,10 @@ class RandomWordView: UIView {
                 
                 refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
                 refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-                refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
+                refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor),
+                
+                spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+                spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
         }
     
@@ -110,12 +120,14 @@ class RandomWordView: UIView {
     @objc func randomWordGenerator(){
         
         print("Refresh pressed")
+        definitionLabel.text = ""
+        spinner.startAnimating()
         
         let headers = [
             "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
             "x-rapidapi-key":
                 //revoked API key
-                "61dee1f350msh3ecfaf007653279p1dea9ejsnd1dbdbf9c211"
+                "API KEY GOES HERE"
         ]
 
         let request = NSMutableURLRequest(url: NSURL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions")! as URL,
@@ -138,6 +150,7 @@ class RandomWordView: UIView {
                             self!.titleLabel.text = randomWord.word
                             self!.definitionLabel.text = randomWord.results?.first?.definition
                             self!.partsOfSpeechLabel.text = randomWord.results?.first?.partOfSpeech
+                            self!.spinner.stopAnimating()
                         }
                     }
                     catch {
@@ -146,6 +159,7 @@ class RandomWordView: UIView {
                             self?.titleLabel.text = ""
                             self?.definitionLabel.text = "Could not find a random word. \nTap on the bottom right refresh button for a new word."
                             self?.partsOfSpeechLabel.text = ""
+                            self?.spinner.stopAnimating()
                         }
                     }
                 }.resume()
